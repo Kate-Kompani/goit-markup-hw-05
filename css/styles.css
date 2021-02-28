@@ -762,22 +762,32 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity var(--duration) var(--cubic-bezier);
 }
 
 .backdrop-order.is-hidden {
     opacity: 0;
     pointer-events: none;
+    
+}
+
+.backdrop-order.is-hidden .modal-order {
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 .modal-order {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform var(--duration) var(--cubic-bezier);
+    
     width: 528px;
     height: 581px;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: #ffffff;     
 }
 
 .close-button {
