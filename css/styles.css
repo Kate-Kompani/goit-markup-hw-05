@@ -17,8 +17,9 @@
 --icon-color: #AFB1B8;
 /* Цвет иконок в футкре */
 --grey-almost-not-transparent: rgba(255, 255, 255, 0.1);
-
---cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1)
+/* Переходы */
+--cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+--duration: 250ms;
 
 }
 
@@ -106,7 +107,10 @@ h1, h2, h3, h4, ul, p {
 }
 
 .nav-link:hover,
-.nav-link:focus {color: var(--accent);}
+.nav-link:focus {
+    color: var(--accent);
+    transition: color var(--duration) var(--cubic-bezier);
+}
 
 .nav-link::after {
     content: "";
@@ -121,12 +125,13 @@ h1, h2, h3, h4, ul, p {
     background-color: var(--accent);
     
     transform: scaleX(0);
-    transition: transform 250ms var(--cubic-bezier);
+    transition: transform var(--duration) var(--cubic-bezier);
 }
 
 .nav-link:hover::after,
 .nav-link:focus::after{
     transform: scaleX(1);
+    transition: transform var(--duration) var(--cubic-bezier);
 }
 
 .current {
@@ -175,13 +180,15 @@ h1, h2, h3, h4, ul, p {
 .tel:hover,
 .tel:focus {
     color: var(--accent);
+    transition: color var(--duration) var(--cubic-bezier);
 }
 
 .mail-icon:hover,
 .mail-icon:focus,
 .tel-icon:hover,
 .tel-icon:focus {
-    fill: currentColor;
+    color: var(--accent);
+    transition: color var(--duration) var(--cubic-bezier);
 }
 
 /* Герой */
@@ -448,6 +455,7 @@ h1, h2, h3, h4, ul, p {
 .social-icons-link:focus {
     background-color: var(--accent);
     fill: #FFFFFF;
+    transition: background-color var(--duration) var(--cubic-bezier), fill var(--duration) var(--cubic-bezier);
 }
 
 .team-info {
@@ -503,6 +511,7 @@ h1, h2, h3, h4, ul, p {
 .clients-link:focus {
     color: var(--accent);
     border: 1px solid var(--accent);
+    transition: color var(--duration) var(--cubic-bezier), border var(--duration) var(--cubic-bezier);
 }
 
 .clients-icon {
@@ -608,6 +617,7 @@ footer {
 .social-icons-link-f:hover,
 .social-icons-link-f:focus {
     background-color: var(--accent);
+    transition: background-color var(--duration) var(--cubic-bezier)
 }
 
 /* Портфолио */
@@ -645,9 +655,10 @@ footer {
 
 .portfolio-btn:hover,
 .portfolio-btn:focus {
-    background: var(--accent);
+    background-color: var(--accent);
     color:#FFFFFF;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition: background-color var(--duration) var(--cubic-bezier), color var(--duration) var(--cubic-bezier), box-shadow var(--duration) var(--cubic-bezier);
 }
 
 .portfolio {
@@ -674,7 +685,7 @@ footer {
     margin-top: 4px;
 }
 
-.card-set {
+.portfolio-cards {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
@@ -683,7 +694,7 @@ footer {
     list-style: none;
 
 }
-.card-set >.services {
+.portfolio-cards >.portfolio-card-set {
     flex-basis: calc(100% / 3 - 30px);
     margin-top: 30px;
     margin-left: 30px;    
@@ -696,18 +707,70 @@ footer {
     border-bottom: 1px solid #EEEEEE;
 }
 
-.services .thumb {
+.portfolio-card-set .thumb {
     height: 294px;
 }
 
-.services img {
+.portfolio-card-set img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.services:hover,
-.services:focus {
+.portfolio-card-set:hover,
+.portfolio-card-set:focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06);
+    transition: box-shadow var(--duration) var(--cubic-bezier);    
+}
+
+.portfolio-card-set>.thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: translateY(100%);
+    transition: transform var(--duration) var(--cubic-bezier);
+
+    background-color: rgba(33, 150, 243, 0.9);;
+    color: #ffffff;
+    padding: 63px 24px;
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+}
+
+.portfolio-card-set:hover .overlay {
+    transform: translateY(0);
+    transition: transform var(--duration) var(--cubic-bezier);
+}
+
+/* Модальное окно */
+.backdrop-order {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop-order.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-order {
+    width: 528px;
+    height: 581px;
+    border-radius: 4px;
 }

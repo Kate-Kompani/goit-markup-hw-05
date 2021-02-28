@@ -48,7 +48,7 @@
         <section class="hero">
             <div class="container-hero">
                 <h1 class="hero-title">Эффективные решения <br /> для вашего бизнеса</h1>
-                <button class="hero-button" type="submit">Заказать услугу</button>
+                <button class="hero-button" data-toggle-backdrop-order>Заказать услугу</button>
             </div>
         </section>
 
@@ -353,6 +353,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container footer">
             <div>
@@ -402,5 +403,13 @@
             </div>
         </div>        
     </footer>
+
+    <div data-backdrop-order class="backdrop-order is-hidden">
+        <div class="modal-order">
+            <button data-toggle-backdrop-order>Закрыть</button>
+        </div>
+    </div>
+    
+    <script src="./js/modal.js"></script>
 </body>
 </html>
