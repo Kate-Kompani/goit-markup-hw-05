@@ -104,6 +104,8 @@ h1, h2, h3, h4, ul, p {
     color: #212121;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition: color var(--duration) var(--cubic-bezier);
 }
 
 .nav-link:hover,
@@ -156,9 +158,11 @@ h1, h2, h3, h4, ul, p {
     line-height: 16px;
     letter-spacing: 0.02em;
     color: #757575;
+    transition: color var(--duration) var(--cubic-bezier);
 
     display: flex;
-    align-items: center;    
+    align-items: center;
+    
 }
 
 .tel {
@@ -447,8 +451,11 @@ h1, h2, h3, h4, ul, p {
     align-items: center;
     width: 44px;
     height: 44px;
+    border-radius: 50%; 
+
     fill: var(--icon-color);
-    border-radius: 50%;    
+    background-color: #ffffff;
+    transition: background-color var(--duration) var(--cubic-bezier), fill var(--duration) var(--cubic-bezier);
 }
 
 .social-icons-link:hover,
@@ -505,6 +512,7 @@ h1, h2, h3, h4, ul, p {
     color: var(--icon-color);
     border: 1px solid var(--icon-color);
     border-radius: 4px;
+    transition: color var(--duration) var(--cubic-bezier), border var(--duration) var(--cubic-bezier);
 }
 
 .clients-link:hover,
@@ -608,16 +616,19 @@ footer {
     justify-content: center;
     align-items: center;
     width: 44px;
-    height: 44px;
+    height: 44px;    
+    border-radius: 50%;
+
     fill: #FFFFFF;
     background: var(--grey-almost-not-transparent);
-    border-radius: 50%;
+    transition: background-color var(--duration) var(--cubic-bezier);
+
 }
 
 .social-icons-link-f:hover,
 .social-icons-link-f:focus {
     background-color: var(--accent);
-    transition: background-color var(--duration) var(--cubic-bezier)
+    transition: background-color var(--duration) var(--cubic-bezier);
 }
 
 /* Портфолио */
@@ -651,6 +662,7 @@ footer {
     border: 0px;
     padding: 6px 22px;
     border-radius: 4px;
+    transition: background-color var(--duration) var(--cubic-bezier), color var(--duration) var(--cubic-bezier), box-shadow var(--duration) var(--cubic-bezier);
 }
 
 .portfolio-btn:hover,
@@ -697,7 +709,8 @@ footer {
 .portfolio-cards >.portfolio-card-set {
     flex-basis: calc(100% / 3 - 30px);
     margin-top: 30px;
-    margin-left: 30px;    
+    margin-left: 30px;
+    transition: box-shadow var(--duration) var(--cubic-bezier);    
 }
 
 .card-content {
@@ -762,6 +775,7 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 
     opacity: 1;
     transition: opacity var(--duration) var(--cubic-bezier);
